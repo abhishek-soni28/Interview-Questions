@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>Application.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #6aab73;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Application.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">launcher</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">repository</span><span class="s2">.</span><span class="s1">InMemoryRepository</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">services</span><span class="s2">.</span><span class="s1">BookingSystem</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">Application </span><span class="s2">{</span>
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s3">// Initialize the in-memory repository and the product system</span>
+        <span class="s1">InMemoryRepository repository </span><span class="s2">= </span><span class="s0">new </span><span class="s1">InMemoryRepository</span><span class="s2">();</span>
+        <span class="s1">BookingSystem bookingSystem </span><span class="s2">= </span><span class="s0">new </span><span class="s1">BookingSystem</span><span class="s2">(</span><span class="s1">repository</span><span class="s2">);</span>
+
+        <span class="s3">// Admin operations</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Admin operations:&quot;</span><span class="s2">);</span>
+
+        <span class="s3">// Add Venue</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Adding Venue...&quot;</span><span class="s2">);</span>
+        <span class="s1">bookingSystem</span><span class="s2">.</span><span class="s1">addVenue</span><span class="s2">(</span><span class="s4">&quot;v_id_001&quot;</span><span class="s2">, </span><span class="s4">&quot;SarjapurSocial&quot;</span><span class="s2">, </span><span class="s4">&quot;Bengaluru&quot;</span><span class="s2">, </span><span class="s5">5</span><span class="s2">);</span>
+        <span class="s1">bookingSystem</span><span class="s2">.</span><span class="s1">addVenue</span><span class="s2">(</span><span class="s4">&quot;v_id_002&quot;</span><span class="s2">, </span><span class="s4">&quot;Runway47&quot;</span><span class="s2">, </span><span class="s4">&quot;Bengaluru&quot;</span><span class="s2">, </span><span class="s5">5</span><span class="s2">);</span>
+
+        <span class="s3">// Add Event</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Adding Event.&quot;</span><span class="s2">);</span>
+        <span class="s1">bookingSystem</span><span class="s2">.</span><span class="s1">addEvent</span><span class="s2">(</span><span class="s4">&quot;e_id_001&quot;</span><span class="s2">, </span><span class="s4">&quot;v_id_001&quot;</span><span class="s2">, </span><span class="s4">&quot;MaiSamayHoon&quot;</span><span class="s2">, </span><span class="s4">&quot;StandUp&quot;</span><span class="s2">, </span><span class="s5">4</span><span class="s2">, </span><span class="s4">&quot;19:00&quot;</span><span class="s2">, </span><span class="s4">&quot;21:00&quot;</span><span class="s2">, </span><span class="s5">500</span><span class="s2">);</span>
+        <span class="s1">bookingSystem</span><span class="s2">.</span><span class="s1">addEvent</span><span class="s2">(</span><span class="s4">&quot;e_id_002&quot;</span><span class="s2">, </span><span class="s4">&quot;v_id_001&quot;</span><span class="s2">, </span><span class="s4">&quot;MaiSamayHoon&quot;</span><span class="s2">, </span><span class="s4">&quot;StandUp&quot;</span><span class="s2">, </span><span class="s5">4</span><span class="s2">, </span><span class="s4">&quot;19:00&quot;</span><span class="s2">, </span><span class="s4">&quot;21:00&quot;</span><span class="s2">, </span><span class="s5">500</span><span class="s2">);</span>
+
+        <span class="s3">// Customer operations</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Customer operations:&quot;</span><span class="s2">);</span>
+
+        <span class="s3">// Book Event</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Customer product event.&quot;</span><span class="s2">);</span>
+        <span class="s1">bookingSystem</span><span class="s2">.</span><span class="s1">bookEvent</span><span class="s2">(</span><span class="s4">&quot;b_id_001&quot;</span><span class="s2">, </span><span class="s4">&quot;c_id_001&quot;</span><span class="s2">, </span><span class="s4">&quot;e_id_001&quot;</span><span class="s2">);</span>
+        <span class="s1">bookingSystem</span><span class="s2">.</span><span class="s1">bookEvent</span><span class="s2">(</span><span class="s4">&quot;b_id_002&quot;</span><span class="s2">, </span><span class="s4">&quot;c_id_002&quot;</span><span class="s2">, </span><span class="s4">&quot;e_id_001&quot;</span><span class="s2">);</span>
+        <span class="s1">bookingSystem</span><span class="s2">.</span><span class="s1">bookEvent</span><span class="s2">(</span><span class="s4">&quot;b_id_003&quot;</span><span class="s2">, </span><span class="s4">&quot;c_id_003&quot;</span><span class="s2">, </span><span class="s4">&quot;e_id_001&quot;</span><span class="s2">);</span>
+        <span class="s1">bookingSystem</span><span class="s2">.</span><span class="s1">bookEvent</span><span class="s2">(</span><span class="s4">&quot;b_id_004&quot;</span><span class="s2">, </span><span class="s4">&quot;c_id_004&quot;</span><span class="s2">, </span><span class="s4">&quot;e_id_001&quot;</span><span class="s2">);</span>
+        <span class="s1">bookingSystem</span><span class="s2">.</span><span class="s1">bookEvent</span><span class="s2">(</span><span class="s4">&quot;b_id_005&quot;</span><span class="s2">, </span><span class="s4">&quot;c_id_005&quot;</span><span class="s2">, </span><span class="s4">&quot;e_id_001&quot;</span><span class="s2">);</span>
+        <span class="s1">bookingSystem</span><span class="s2">.</span><span class="s1">cancelBooking</span><span class="s2">(</span><span class="s4">&quot;c_id_002&quot;</span><span class="s2">, </span><span class="s4">&quot;b_id_002&quot;</span><span class="s2">);</span>
+
+        <span class="s3">// removing venue</span>
+        <span class="s1">bookingSystem</span><span class="s2">.</span><span class="s1">removeVenue</span><span class="s2">(</span><span class="s4">&quot;v_id_001&quot;</span><span class="s2">);</span>
+        <span class="s3">//product removed venue</span>
+        <span class="s1">bookingSystem</span><span class="s2">.</span><span class="s1">bookEvent</span><span class="s2">(</span><span class="s4">&quot;b_id_005&quot;</span><span class="s2">, </span><span class="s4">&quot;c_id_005&quot;</span><span class="s2">, </span><span class="s4">&quot;e_id_001&quot;</span><span class="s2">);</span>
+        <span class="s3">//adding irrevelant event</span>
+        <span class="s1">bookingSystem</span><span class="s2">.</span><span class="s1">bookEvent</span><span class="s2">(</span><span class="s4">&quot;b_id_005&quot;</span><span class="s2">, </span><span class="s4">&quot;c_id_005&quot;</span><span class="s2">, </span><span class="s4">&quot;e_id_004&quot;</span><span class="s2">);</span>
+        <span class="s3">//removing event</span>
+        <span class="s1">bookingSystem</span><span class="s2">.</span><span class="s1">removeEvent</span><span class="s2">(</span><span class="s4">&quot;e_id_002&quot;</span><span class="s2">);</span>
+
+<span class="s3">//</span>
+<span class="s3">//        // Get All Bookings (for customer)</span>
+<span class="s3">//        System.out.println(&quot;Fetching all products for customer c_id_001...&quot;);</span>
+<span class="s3">//        bookingSystem.searchByEventType(&quot;StandUp&quot;, &quot;startTime&quot;);</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>
